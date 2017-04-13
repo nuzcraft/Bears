@@ -9,7 +9,7 @@ def render_map():
             if (x - var.map_offset_x < var.game_width and
                     y - var.map_offset_y < var.game_height):
                 if var.map_array[x][y] == 0:
-                    if x % 2 == 0:
+                    if y % 2 == 0:
                         terminal.printf(x - var.map_offset_x, y - var.map_offset_y, '.')
                     else:
                         terminal.printf(x - var.map_offset_x, y - var.map_offset_y, ',')
