@@ -2,6 +2,7 @@
 from bearlibterminal import terminal
 import variables as var
 
+
 def handle_keys():
     """handle input from the player"""
     if terminal.has_input():
