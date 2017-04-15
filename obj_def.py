@@ -1,5 +1,9 @@
 """This file will store basic object definitions"""
 
+player = {'name': 'player'
+          , 'layers': [[0, 0, '@', 'white']]
+          , 'blocks': True}
+
 tree_01 = {'name': 'tree'
            , 'layers': [[0, 0, 'T', 'dark green']]
            , 'blocks': True}

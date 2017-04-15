@@ -13,13 +13,12 @@ def handle_keys():
             # check whether the map can move
             if not var.map_width - var.map_offset_x <= var.game_width:
                 # check if they are within the 'border' if so, move the map
-                if (var.player_x - var.map_offset_x
+                if (var.player.x - var.map_offset_x
                         >= var.game_width - var.game_border):
                     var.map_offset_x += 1
             # check if the player is going to move outside the map
-            if var.player_x - var.map_offset_x < var.game_width - 1:
-                var.player_x += 1
-                return 'moving'
+            if var.player.x - var.map_offset_x < var.game_width - 1:
+                return var.player.move(1, 0)
             else:
                 return 'idle'
         elif key == terminal.TK_LEFT:
@@ -27,12 +26,11 @@ def handle_keys():
             # check whether the map can move
             if var.map_offset_x > 0:
                 # check if they are within the 'border' if so, move the map
-                if var.player_x - var.map_offset_x < var.game_border:
+                if var.player.x - var.map_offset_x < var.game_border:
                     var.map_offset_x -= 1
             # check if the player is going to move outside the map
-            if var.player_x - var.map_offset_x > 0:
-                var.player_x -= 1
-                return 'moving'
+            if var.player.x - var.map_offset_x > 0:
+                return var.player.move(-1, 0)
             else:
                 return 'idle'
         elif key == terminal.TK_DOWN:
@@ -40,13 +38,12 @@ def handle_keys():
             # check whether the map can move
             if not var.map_height - var.map_offset_y <= var.game_height:
                 # check if they are within the 'border' if so, move the map
-                if (var.player_y - var.map_offset_y
+                if (var.player.y - var.map_offset_y
                         >= var.game_height - var.game_border):
                     var.map_offset_y += 1
             # check if the player is going to move outside the map
-            if var.player_y - var.map_offset_y < var.game_height - 1:
-                var.player_y += 1
-                return 'moving'
+            if var.player.y - var.map_offset_y < var.game_height - 1:
+                return var.player.move(0, 1)
             else:
                 return 'idle'
         elif key == terminal.TK_UP:
@@ -54,12 +51,11 @@ def handle_keys():
             # check whether the map can move
             if var.map_offset_y > 0:
                 # check if they are within the 'border' if so, move the map
-                if var.player_y - var.map_offset_y < var.game_border:
+                if var.player.y - var.map_offset_y < var.game_border:
                     var.map_offset_y -= 1
             # check if the player is going to move outside the map
-            if var.player_y - var.map_offset_y > 0:
-                var.player_y -= 1
-                return 'moving'
+            if var.player.y - var.map_offset_y > 0:
+                return var.player.move(0, -1)
             else:
                 return 'idle'
         # this section is inputs that should not

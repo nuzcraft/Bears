@@ -20,3 +20,7 @@ player_y = 10
 player_char = '@'
 player_action = 'idle'
 
+# initialize a list of entities
+entities = []
+# initialize the player (as none) so it can be assigned once the player is created
+player = None
