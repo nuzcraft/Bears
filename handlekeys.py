@@ -13,11 +13,11 @@ def handlekeys():
     # movement keys
     # if lib.console_is_key_pressed(lib.KEY_UP):
     if key.vk == lib.KEY_UP:
-        var.player.y -= 1
+        var.player.move(0, -1)
     elif key.vk == lib.KEY_DOWN:
-        var.player.y += 1
+        var.player.move(0, 1)
     elif key.vk == lib.KEY_LEFT:
-        var.player.x -= 1
+        var.player.move(-1, 0)
     elif key.vk == lib.KEY_RIGHT:
-        var.player.x += 1
+        var.player.move(1, 0)
     return False

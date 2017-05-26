@@ -1,5 +1,6 @@
 import libtcodpy as lib
 import variables as var
+from isblocked import isblocked
 
 
 class Entity:
@@ -15,3 +16,8 @@ class Entity:
 
     def clear(self):
         lib.console_put_char(var.dungeon_con, self.x, self.y, ' ', lib.BKGND_NONE)
+
+    def move(self, dx, dy):
+        if not isblocked(self.x + dx, self.y + dy):
+            self.x += dx
+            self.y += dy
